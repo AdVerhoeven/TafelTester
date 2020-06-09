@@ -1,0 +1,54 @@
+﻿<Window x:Class="TafelTester.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TafelTester"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*" MinHeight="57"/>
+            <RowDefinition Height="60*"/>
+            <RowDefinition Height="212*"/>
+            <RowDefinition Height="87*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Tafeltester" HorizontalAlignment="Left" Margin="10,10,0,0" Width="100" FontSize="20" Height="37" VerticalAlignment="Top" Grid.Row="0"/>
+
+        <Label Content="Vul het getal waarvan je de tafel wilt oefenen in:" HorizontalAlignment="Left" Margin="10,8,0,24" Grid.Row="1" Width="auto"/>
+        <Grid Margin="278,10,0,20" Grid.Row="1" HorizontalAlignment="Stretch" Width="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="TafelTextBox" HorizontalAlignment="Left" Height="25" TextWrapping="NoWrap" Text="" VerticalAlignment="Top" Width="auto" MinWidth="50" TextChanged="IntOnlyText" Grid.Column="0"/>
+            <Button x:Name="TafelButton" Content="Maak Sommen" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="auto" Height="25" Margin="10,0,0,0" Click="TafelButton_Click" Grid.Column="1"/>
+        </Grid>
+
+        <Grid x:Name="SomGrid" HorizontalAlignment="Stretch" Height="195" Margin="10,0,0,0" Grid.Row="2" VerticalAlignment="Top" Width="auto">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Label Name="SomLabel1" Content="A x B = " HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Stretch" Grid.Row="0" Grid.Column="0" />
+            <Label Name="SomLabel2" Content="A x B = " HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="0"/>
+            <Label Name="SomLabel3" Content="A x B = " HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Stretch" Grid.Row="2" Grid.Column="0"/>
+            <Label Name="SomLabel4" Content="A x B = " HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Stretch" Grid.Row="3" Grid.Column="0"/>
+            <Label Name="SomLabel5" Content="A x B = " HorizontalAlignment="Stretch" Margin="0,6,0,0" VerticalAlignment="Stretch" Grid.Row="4" Grid.Column="0"/>
+            <TextBox Name="Antwoord1" Text="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" MinWidth="50" Width="auto" Grid.Column="1" Grid.Row="0" TextChanged="IntOnlyText"/>
+            <TextBox Name="Antwoord2" Text="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" MinWidth="50" Width="auto" Grid.Column="1" Grid.Row="1" TextChanged="IntOnlyText"/>
+            <TextBox Name="Antwoord3" Text="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" MinWidth="50" Width="auto" Grid.Column="1" Grid.Row="2" TextChanged="IntOnlyText"/>
+            <TextBox Name="Antwoord4" Text="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" MinWidth="50" Width="auto" Grid.Column="1" Grid.Row="3" TextChanged="IntOnlyText"/>
+            <TextBox Name="Antwoord5" Text="" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch" MinWidth="50" Width="auto" Grid.Column="1" Grid.Row="4" TextChanged="IntOnlyText"/>
+        </Grid>
+        <Button Name="ShowScoreButton" Content="Laat score zien" HorizontalAlignment="Left" VerticalAlignment="Top" Width="auto" Margin="10,10,0,0" Grid.Row="3" Click="ShowScoreButton_Click"/>
+        <Label Name="ScoreLabel" VerticalAlignment="Top" HorizontalAlignment="Left" Width="auto" Height="auto" Content="Je score is: " Margin="10,30,0,0" Grid.Row="3" FontSize="22"/>
+    </Grid>
+</Window>
