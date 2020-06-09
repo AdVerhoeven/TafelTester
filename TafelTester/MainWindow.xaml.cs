@@ -23,8 +23,8 @@ namespace TafelTester
     {
 
         Random random = new Random();
-
-        int maxB = 100;
+        //maxInput
+        int? maxB = null;
 
         public MainWindow()
         {
@@ -49,13 +49,27 @@ namespace TafelTester
             ///If it doesn't parse, remove the last changes.
             if (!BigInteger.TryParse(box.Text, out BigInteger result))
             {
-                TextChange[] test = e.Changes.ToArray();
+                UndoChanges(e, box);
+            }
+            else
+            {
+                //Optional maximum input.
 
-                if (test[0].AddedLength > 0)
+                if (maxB != null && maxB < result)
                 {
-                    box.Text = box.Text.Remove(test[0].Offset, test[0].AddedLength);
-                    box.SelectionStart = test[0].Offset;
+                    UndoChanges(e, box);
                 }
+            }
+        }
+
+        private static void UndoChanges(TextChangedEventArgs e, TextBox box)
+        {
+            TextChange[] test = e.Changes.ToArray();
+
+            if (test[0].AddedLength > 0)
+            {
+                box.Text = box.Text.Remove(test[0].Offset, test[0].AddedLength);
+                box.SelectionStart = test[0].Offset;
             }
         }
 
